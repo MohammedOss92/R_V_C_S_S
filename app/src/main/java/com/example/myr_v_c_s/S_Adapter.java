@@ -47,7 +47,7 @@ public class S_Adapter extends RecyclerView.Adapter<S_Adapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final Sport mSport = mSportList.get(position);
 
 //            if (mSport.getImageUrl() != null) {
@@ -86,6 +86,7 @@ public class S_Adapter extends RecyclerView.Adapter<S_Adapter.MyViewHolder> {
                     if (mSport.getInfo() != null) {
                         try {
                             Intent intent = new Intent(con, Main2Activity.class);
+                            intent.putExtra("index", position);
                             con.startActivity(intent);
 //                        holder.itemView.getContext().startActivity(intent);
                         } catch (Exception e) {
